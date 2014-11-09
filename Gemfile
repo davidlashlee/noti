@@ -34,6 +34,8 @@ group :development do
 end
 
 gem 'devise'
+gem 'omniauth-facebook' #facebook login
+gem 'figaro' #hide env keys
 
 gem 'twitter-bootstrap-rails'
 
