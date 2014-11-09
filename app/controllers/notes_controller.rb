@@ -9,6 +9,7 @@ class NotesController < ApplicationController
 
 	def create
 		@note = Note.new(note_params)
+		if @note.body.inclues? "lookup"
 		
 
 		@note.save
