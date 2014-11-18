@@ -41,7 +41,7 @@ gem 'figaro' #hide env keys
 gem 'twitter-bootstrap-rails'
 
 gem "therubyracer"
-# gem "less-rails"
+gem "less-rails"
 gem 'bootstrap_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

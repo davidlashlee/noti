@@ -7,14 +7,16 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<% if params[:controller].to_s == "lists"%>
+	
 	<%= render "elements/navbar" %>
-	<% end %>
+
 
 	<% unless params[:controller].to_s == "welcomes"%>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
+			<% if params[:controller].to_s == "lists"%>
 			<%= render 'elements/sidebar' %>
+			<% end %>
 
 			<div class="col-xs-12 col-sm-10" style="margin-top: 42px; margin-bottom: 42px;">
 	<% end%>

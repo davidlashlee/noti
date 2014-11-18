@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-5" style="background-color: #A3C2C2;">
+		<div class="col-sm-5 round_corners" style="background-color: #A3C2C2; padding-top: 10px; margin-top: 25px;">
 			<h3>Welcome to Noti!</br>Sign Up</h3>
 
 			<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,7 +25,8 @@
 			<%= render "devise/shared/links" %>
 			</br>
 		</div>
-		<div class="col-md-6">
+		<div class="col-sm-6">
+		<%= image_tag("teal-journal.png", size: "450x550") %>
 		<h1></h1>
 		</div>
 	</div>
