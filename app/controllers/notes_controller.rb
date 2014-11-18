@@ -10,10 +10,9 @@ class NotesController < ApplicationController
 	def create
 		@note = Note.new(note_params)
 		if @note.body.inclues? "lookup"
-		
-
-		@note.save
-		redirect_to @note
+			@note.save
+			redirect_to @note
+		end
 	end
 
 	def edit
@@ -38,7 +37,7 @@ class NotesController < ApplicationController
 		@notes = Note.find(params[:id])
 		@notes.destroy
 
-	redirect_to '/notes/new', :notice => "Your note has been deleted"
+		redirect_to '/notes/new', :notice => "Your note has been deleted"
 	end
 
 	private

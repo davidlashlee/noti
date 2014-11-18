@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'wikipedia-client' #wikipedia API
 
-
+gem 'libv8'
 
 group :development do
   gem 'guard'
@@ -33,14 +33,15 @@ group :development do
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end
 
-gem 'devise'
+gem 'devise' #authientication
 gem 'omniauth-facebook' #facebook login
+gem 'omniauth-twitter'
 gem 'figaro' #hide env keys
 
 gem 'twitter-bootstrap-rails'
 
 gem "therubyracer"
-gem "less-rails"
+# gem "less-rails"
 gem 'bootstrap_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
