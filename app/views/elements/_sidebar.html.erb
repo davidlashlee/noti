@@ -1,13 +1,11 @@
 
-        
-        <!-- sidebar -->
-        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation" style="padding-top: 54px;">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">All</a></li>
-              <li><a href="#">Journal</a></li>
-              <li><a href="#">Movies to Watch</a></li>
-              <li><a href="#">Music to Listen</a></li>
-              <li><a href="#">Deleted</a></li>
-            </ul>
-        </div>
+
+<!-- sidebar -->
+<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation" style="padding-top: 54px;">
+  <ul class="nav">
+    <% current_user.lists.each_with_index do |list_instance, list_index| %>
+    <li> <%= link_to(list_instance.name, list_path(list_instance.id)) %> </li>
+    <% end %>
+    <li>Create new List</li>
+  </ul>
+</div>

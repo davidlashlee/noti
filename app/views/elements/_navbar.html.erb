@@ -24,8 +24,11 @@
     				<li>
     					<a href="#">Contact</a>
     				</li>
-    				<% if current_user == true %>
+    				<% if user_signed_in? %>
     				<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+                        <% unless current_user.image == nil %>
+                        <li class ="navbar-padding"> <%= image_tag(current_user.image, class: "img-circle", size: "25") %> </li>
+                        <% end %>
     				<% else %>
     				<li><%= link_to "Sign In", new_user_session_path %></li>
     				<% end %></li>
@@ -36,3 +39,6 @@
     	</div>
     	<!-- /.container -->
     </nav>
+
+    
+   
