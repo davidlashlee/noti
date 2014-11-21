@@ -10,7 +10,13 @@
     				<span class="icon-bar"></span>
     				<span class="icon-bar"></span>
     			</button>
-    			<a class="navbar-brand fa fa-book" href="#"> Noti</a>
+                <% if user_signed_in? == true %>
+                <%= link_to image_tag("brand_black.png", size: "25", class: "navbar-padding2"), "/lists", class: "navbar-brand" %>
+                <a class="navbar-brand" href="/lists"> Noti</a>
+                <% else %>
+                <%= link_to image_tag("brand_black.png", size: "30"), "#", class: "navbar-padding2" %>
+                <a class="navbar-brand" href="#"> Noti</a>
+                <% end %>
     		</div>
     		<!-- Collect the nav links, forms, and other content for toggling -->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

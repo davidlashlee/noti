@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+	before_action :authenticate_user!
+
 	def index
 		@notes = Note.all
 	end
@@ -9,10 +11,8 @@ class NotesController < ApplicationController
 
 	def create
 		@note = Note.new(note_params)
-		if @note.body.inclues? "lookup"
-			@note.save
-			redirect_to @note
-		end
+		@note.lists << List.find(params[:id])
+		@note.save
 	end
 
 	def edit

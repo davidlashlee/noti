@@ -37,8 +37,10 @@ end
 
 gem 'devise' #authientication
 gem 'omniauth-facebook' #facebook login
-gem 'omniauth-twitter'
+gem 'omniauth-twitter' #twitter login
+gem 'omniauth-gplus' #google plus login
 gem 'figaro' #hide env keys
+gem 'nested_form' 
 
 gem 'twitter-bootstrap-rails'
 

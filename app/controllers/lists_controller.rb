@@ -10,10 +10,11 @@ class ListsController < ApplicationController
 
 	def create
 		@list = List.new(list_params)
+		@list.users << current_user
 		
 
 		@list.save
-		redirect_to @list
+		redirect_to lists_path
 	end
 
 	def edit
@@ -38,12 +39,12 @@ class ListsController < ApplicationController
 		@lists = List.find(params[:id])
 		@lists.destroy
 
-	redirect_to '/lists/new', :notice => "Your list has been deleted"
+	redirect_to '/lists', :notice => "Your list has been deleted"
 	end
 
 	private
 	def list_params
-		params.require(:list).permit(:name)
+		params.require(:list).permit(:name, note_attributes: [:body, :_destory])
 	end
 
 end

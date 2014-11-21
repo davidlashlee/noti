@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'welcomes#index'
-  resources :notes
-  resources :lists
+  resources :lists do
+    resources :notes
+  end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation: first created -> highest priority.

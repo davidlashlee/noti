@@ -1,15 +1,10 @@
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
-<h1> list index </h1>
+</br>
+<% @lists.each do |list_instance| %>
+	<% unless list_instance.notes == nil %>
+		<% list_instance.notes.each do |note_instance| %>
+			<%= note_instance.body %>
+		<% end %>
+	<% else %>
+		<h1> Make some Notes and some lists </h1> 
+	<% end %>
+<% end %>

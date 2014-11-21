@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :list_users
   has_many :lists, through: :list_users
+  accepts_nested_attributes_for :lists
 
   after_create :seed_list
 

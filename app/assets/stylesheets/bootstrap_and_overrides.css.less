@@ -41,21 +41,26 @@
 @color-secondary-1-2: #B3A16E;
 @color-secondary-1-3: #B88C11;
 @color-secondary-1-4: #BE9011;
+@color-secondary-2-1: #B68270;
 
 @color-secondary-2-0: #643322;	/* Main Secondary color (2) */
-@color-secondary-2-1: #B68270;
 @color-secondary-2-2: #B37F6E;
 @color-secondary-2-3: #B83C11;
 @color-secondary-2-4: #BE3D11;
 //------ COLOR SCHEME -------
 
 .round_corners {
--moz-border-radius: 15px;
-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
-img.desaturate { -webkit-filter: grayscale(80%);
--moz-filter: grayscale(80%);
-filter: grayscale(80%);
+img.desaturate { -webkit-filter: grayscale(95%);
+	-moz-filter: grayscale(95%);
+	filter: grayscale(95%);
+	&:hover { 
+		-webkit-filter: grayscale(15%);
+	-moz-filter: grayscale(15%);
+	filter: grayscale(15%);
+	}
 }
 
