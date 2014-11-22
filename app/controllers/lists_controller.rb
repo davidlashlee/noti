@@ -12,10 +12,12 @@ class ListsController < ApplicationController
 		@list = List.new(list_params)
 		@list.users << current_user
 		
-
+		if @list.name != nil
 		@list.save
 		redirect_to lists_path
+		end
 	end
+
 
 	def edit
 		@list = List.find(params[:id])
@@ -33,6 +35,7 @@ class ListsController < ApplicationController
 
 	def show
 		@list = List.find(params[:id])
+		@new_note = @list.notes.new
 	end
 
 	def destroy
@@ -44,7 +47,7 @@ class ListsController < ApplicationController
 
 	private
 	def list_params
-		params.require(:list).permit(:name, note_attributes: [:body, :_destory])
+		params.require(:list).permit(:name, note_attributes: [:body, :done, :_destory])
 	end
 
 end

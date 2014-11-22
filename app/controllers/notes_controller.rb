@@ -1,18 +1,23 @@
 class NotesController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_list
+
+	def set_list
+		@list = List.find(params[:list_id])
+	end
 
 	def index
 		@notes = Note.all
 	end
 
 	def new
-		@note = Note.new
+		@note = @list.notes.new
 	end
 
 	def create
-		@note = Note.new(note_params)
-		@note.lists << List.find(params[:id])
+		@note = @list.notes.new(note_params)
 		@note.save
+		redirect_to @list
 	end
 
 	def edit
@@ -42,7 +47,7 @@ class NotesController < ApplicationController
 
 	private
 	def note_params
-		params.require(:note).permit(:name)
+		params.require(:note).permit(:body, :done, :list_id)
 	end
 
 end

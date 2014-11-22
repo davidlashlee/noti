@@ -1,9 +1,8 @@
-
+<div class="col-md-8">
 </br>
 
-<%= form_for ([@list, @note]) do |f| %>
-<%= f.text_field :body %>
-<%= f.submit "create" %>
+<%= bootstrap_form_for([@list,@new_note]) do |f| %>
+<%= f.text_field :body, hide_label: :true, placeholder: "Make a note..." %>
 <% end %>
 
 
@@ -13,4 +12,7 @@
 </br>
 <% @list.notes.each do |note_instance| %>
 	<%= note_instance.body %>
+	</br>
 <% end %>
+</div>
+</div>
