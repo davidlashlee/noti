@@ -35,6 +35,8 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-editable-rails (0.0.7)
+      railties (>= 3.1)
     bootstrap_form (2.2.0)
     builder (3.2.2)
     celluloid (0.16.0)
@@ -221,6 +223,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bootstrap-editable-rails
   bootstrap_form
   coffee-rails (~> 4.0.0)
   devise

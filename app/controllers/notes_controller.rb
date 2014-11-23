@@ -27,10 +27,14 @@ class NotesController < ApplicationController
 	def update
 		@note = Note.find(params[:id])
 
-		if @note.update(note_params)
-			redirect_to @note
-		else
-			render 'edit'
+		respond_to do |format|
+			if @note.update_attributes(note_params)
+				format.html { redirect_to @note, notice: 'Post was successfully updated.' }
+    	format.json { head :no_content } # 204 No Content
+    		else
+    	format.html { render action: "edit" }
+    	format.json { render json: @@note.errors, status: :unprocessable_entity }
+    		end
 		end
 	end
 

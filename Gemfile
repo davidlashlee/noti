@@ -47,6 +47,7 @@ gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails"
 gem 'bootstrap_form'
+gem 'bootstrap-editable-rails' #for inline editing of notes
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -2,7 +2,7 @@
 </br>
 
 <%= bootstrap_form_for([@list,@new_note]) do |f| %>
-<%= f.text_field :body, hide_label: :true, placeholder: "Make a note..." %>
+<%= f.text_field :body, hide_label: :true, placeholder: "Make a new note..." %>
 <% end %>
 
 
@@ -11,8 +11,25 @@
 
 </br>
 <% @list.notes.each do |note_instance| %>
-	<%= note_instance.body %>
+<a href="#" id="body" data-type="text" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="color: black;"><%= note_instance.body %></a>
+	
 	</br>
 <% end %>
 </div>
 </div>
+
+<script>
+// Force the form to use fontawesome instead of bootstrap glyphicons
+$.fn.editableform.buttons =
+  '<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
+    '<i class="fa fa-fw fa-check"></i>'+
+  '</button>'+
+  '<button type="button" class="btn btn-default btn-sm editable-cancel">'+
+    '<i class="fa fa-fw fa-times"></i>'+
+  '</button>';
+// javascript for xeditable, allows inline editing of notes
+$.fn.editable.defaults.mode = 'inline';
+$(document).ready(function() {
+    $('#body').editable();
+});
+</script>
