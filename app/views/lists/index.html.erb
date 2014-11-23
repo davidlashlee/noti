@@ -1,5 +1,5 @@
 </br>
-<% @lists.each do |list_instance| %>
+<% current_user.lists.each do |list_instance| %>
 	<% unless list_instance.notes == nil %>
 		<% list_instance.notes.each do |note_instance| %>
 			<%= note_instance.body %>
