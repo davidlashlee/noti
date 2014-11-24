@@ -9,14 +9,11 @@
 		<div class="col-md-12" align="center">
 		<% @list.notes.each do |note_instance| %>
 			<% if note_instance.body != nil %>
-				<div style="border-style: solid; border-width: 1px; padding: 15px 5px 5px 5px; border-color: rgba(166, 166, 166, .5); border-radius: 10px;">
-				<p>
-					<a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="color: black; align: center; border-bottom: none;"><%= note_instance.body %></a>
-				</p>
-				</div>
-				<p>
-			<%= link_to 'Destroy',  list_note_path(@list.id, note_instance.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
-			</p>
+
+				<!-- div style="border-style: solid; border-width: 1px; padding: 15px 5px 5px 5px; border-color: rgba(166, 166, 166, .5); border-radius: 10px;" -->
+				<div class="btn-group" role="group" align="center">
+					<buttom type="bottom" class="btn btn-default" style="min-width: 100%;"><a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="color: black; align: center; border-bottom: none;"><%= note_instance.body %></a></buttom>
+					<buttom type="bottom" class="btn btn-default"><%= link_to 'Destroy',  list_note_path(@list.id, note_instance.id),  method: :delete, data: { confirm: 'Are you sure?' } %></buttom>
 			</br>
 			<% end %>
 			<% end %>
