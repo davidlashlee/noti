@@ -4,6 +4,11 @@
 		<%= f.text_field :body, hide_label: :true, placeholder: "Make a new note..." %>
 	<% end %>
 	</br>
+
+	<% if @list.notes.count < 1 %>
+	<h3 style="color: gray; align: center;"> Notebook is Empty.</br> Please make some notes. </h3>
+	<% end %>
+
 	<div clsss="container">
 		<div class="row">
 		<div class="col-md-12" align="center">
