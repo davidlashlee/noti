@@ -39,14 +39,14 @@ class NotesController < ApplicationController
 	end
 
 	def show
-		@note = Note.find(params[:id])
+		@note = Note.find(params[:note_id])
 	end
 
 	def destroy
-		@notes = Note.find(params[:id])
-		@notes.destroy
+		@note = Note.find(params[:id])
+		@note.destroy
 
-		redirect_to '/notes/new', :notice => "Your note has been deleted"
+		redirect_to @list, :notice => "Your note has been deleted"
 	end
 
 	private

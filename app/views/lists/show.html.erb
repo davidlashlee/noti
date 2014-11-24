@@ -1,35 +1,41 @@
-<div class="col-md-8">
-</br>
-
-<%= bootstrap_form_for([@list,@new_note]) do |f| %>
-<%= f.text_field :body, hide_label: :true, placeholder: "Make a new note..." %>
-<% end %>
-
-
-
-
-
-</br>
-<% @list.notes.each do |note_instance| %>
-<a href="#" id="body" data-type="text" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="color: black;"><%= note_instance.body %></a>
-	
+<div class="col-md-12">
 	</br>
-<% end %>
-</div>
-</div>
+	<%= bootstrap_form_for([@list,@new_note]) do |f| %>
+		<%= f.text_field :body, hide_label: :true, placeholder: "Make a new note..." %>
+	<% end %>
+	</br>
+	<div clsss="container">
+		<div class="row">
+		<div class="col-md-12" align="center">
+		<% @list.notes.each do |note_instance| %>
+			<% if note_instance.body != nil %>
+				<div style="border-style: solid; border-width: 1px; padding: 15px 5px 5px 5px; border-color: rgba(166, 166, 166, .5); border-radius: 10px;">
+				<p>
+					<a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="color: black; align: center; border-bottom: none;"><%= note_instance.body %></a>
+				</p>
+				</div>
+				<p>
+			<%= link_to 'Destroy',  list_note_path(@list.id, note_instance.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+			</p>
+			</br>
+			<% end %>
+			<% end %>
+		</div>
+	</div> <!-- class="row" -->
+</div> <!-- class="container" -->
 
 <script>
 // Force the form to use fontawesome instead of bootstrap glyphicons
 $.fn.editableform.buttons =
-  '<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
-    '<i class="fa fa-fw fa-check"></i>'+
-  '</button>'+
-  '<button type="button" class="btn btn-default btn-sm editable-cancel">'+
-    '<i class="fa fa-fw fa-times"></i>'+
-  '</button>';
+'<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
+'<i class="fa fa-fw fa-check"></i>'+
+'</button>'+
+'<button type="button" class="btn btn-default btn-sm editable-cancel">'+
+'<i class="fa fa-fw fa-times"></i>'+
+'</button>';
 // javascript for xeditable, allows inline editing of notes
 $.fn.editable.defaults.mode = 'inline';
 $(document).ready(function() {
-    $('#body').editable();
+	$('.js-select').editable();
 });
 </script>
