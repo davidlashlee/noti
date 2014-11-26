@@ -1,10 +1,5 @@
 class ListsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :asign
-
-	def asign
-		@current_lists = current_user.lists
-	end
 
 	def index
 		@lists = List.all

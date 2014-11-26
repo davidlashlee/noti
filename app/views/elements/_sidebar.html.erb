@@ -91,7 +91,7 @@
 
               <%= bootstrap_form_for(@list) do |f| %>
               <%= f.select :name, options_for_select(current_user.lists.collect{ |c| [c.name, c.id] }) %>
-              <%= f.text_field :users %>
+              <%= f.text_field : %>
               <%= f.submit "Share" %>
               <% end %>
             
