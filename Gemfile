@@ -35,6 +35,8 @@ group :development do
   gem "binding_of_caller"
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'devise' #authientication
 gem 'omniauth-facebook' #facebook login
 gem 'omniauth-twitter' #twitter login
