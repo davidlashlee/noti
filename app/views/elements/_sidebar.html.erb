@@ -12,21 +12,22 @@
     <!-- Button trigger modal 1 & 2 -->   
     <li align="center"> 
       <button type="button" class="btn btn-primary btn-lg buttonwidth" data-toggle="modal" data-target="#myModal">
-      +
-    </button>
+        +
+      </button>
     </li>
 
     <li align="center"> 
       <button type="button" class="btn btn-primary btn-lg buttonwidth" data-toggle="modal" data-target="#myModal2">
-      -
-    </button>
+        -
+      </button>
     </li>
-
-    <li align="center"> 
-      <button type="button" class="btn btn-primary btn-lg buttonwidth" data-toggle="modal" data-target="#myModal3">
-      <i class="fa fa-share-alt"></i>
-    </button>
-    </li>
+    <% if current_page?(lists_path) == false %>
+      <li align="center"> 
+        <button type="button" class="btn btn-primary btn-lg buttonwidth" data-toggle="modal" data-target="#myModal3">
+          <i class="fa fa-share-alt"></i>
+        </button>
+      </li>
+    <% end %>
 
 
     <!-- Modal code 1-->
@@ -61,11 +62,11 @@
             <h4 class="modal-title" align="center">Delete List</h4>
           </div>
           <div class="modal-body">
-          <ul class="list-group" align="center">
-            <% current_user.lists.each do |list_instance| %>
-            <li class="list-group-item">
-              <%= list_instance.name %>
-              <%= link_to 'Delete',  list_instance,  method: :delete, data: { confirm: 'Are you sure?' } %>
+            <ul class="list-group" align="center">
+              <% current_user.lists.each do |list_instance| %>
+              <li class="list-group-item">
+                <%= list_instance.name %>
+                <%= link_to 'Delete',  list_instance,  method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>
               <% end %>
             </ul>
@@ -77,7 +78,8 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-        <!-- Modal code 3-->
+    <!-- Modal code 3-->
+    <% if current_page?(lists_path) == false %>
     <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -86,7 +88,13 @@
             <h4 class="modal-title">New List</h4>
           </div>
           <div class="modal-body">
-           
+
+              <%= bootstrap_form_for(@list) do |f| %>
+              <%= f.select :name, options_for_select(current_user.lists.collect{ |c| [c.name, c.id] }) %>
+              <%= f.text_field :users %>
+              <%= f.submit "Share" %>
+              <% end %>
+            
 
           </div>
           <div class="modal-footer">
@@ -96,9 +104,10 @@
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
-    </div><!-- /.modal --> 
+    </div><!-- /.modal -->
+    <% end %>
 
 
-    </li>
-  </ul>
+  </li>
+</ul>
 </div>

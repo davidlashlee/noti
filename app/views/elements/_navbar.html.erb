@@ -11,10 +11,10 @@
     				<span class="icon-bar"></span>
     			</button>
                 <% if user_signed_in? == true %>
-                <%= link_to image_tag("brand_black.png", size: "25", class: "navbar-padding2"), "/lists", class: "navbar-brand" %>
+                <%= link_to image_tag("brand_black.png", size: "25", class: "navbar-brand2 navbar-padding2"), "/lists" %>
                 <a class="navbar-brand" href="/lists"> Noti</a>
                 <% else %>
-                <%= link_to image_tag("brand_black.png", size: "30"), "#", class: "navbar-padding2" %>
+                <%= link_to image_tag("brand_black.png", size: "30", class: "navbar-brand2 navbar-padding2"), "#" %>
                 <a class="navbar-brand" href="#"> Noti</a>
                 <% end %>
     		</div>
