@@ -3,6 +3,7 @@
 <!-- sidebar -->
 <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation" style="padding-top: 54px;">
   <ul class="nav">
+    <li><%= link_to("All", '/lists', align: "center" ) %> </li>
     <% current_user.lists.each_with_index do |list_instance, list_index| %>
     <li > <%= link_to(list_instance.name, list_path(list_instance.id), align: "center") %> </li>
     <% end %>

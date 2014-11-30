@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   after_create :seed_list
 
   def seed_list
-  	list_name = %w(All Journal Movies\ to\ Watch Music\ to\ Listen Deleted)
+  	list_name = %w(Journal Movies\ to\ Watch Music\ to\ Listen Deleted)
     list_name.each_with_index do |list_instance, list_index|
       temp =  List.new
      temp.name = list_instance
