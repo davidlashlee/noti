@@ -1,17 +1,32 @@
-<h2>Log in</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5 round_corners" style="background-color: #A3C2C2; padding-top: 10px; margin-top: 35px;">
+			<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+			<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			<div><%= f.label :email %><br />
+				<%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+				<div><%= f.label :password %><br />
+					<%= f.password_field :password, autocomplete: "off" %>
+				</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+				<% if devise_mapping.rememberable? -%>
+					<div>
+						<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+					</div>
+				<% end %>
 
-  <div><%= f.submit "Log in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+					<div>
+						<%= f.submit "Log in" %>
+					</div>
+			<% end %>
+			<%= render "devise/shared/links" %>
+			</br>
+		</div>
+	<div class="col-sm-6" style="margin-top: 35px;">
+		<%= image_tag("teal-journal.jpg", size: "450x550") %>
+		<h1></h1>
+	</div>
+</div>
+</div>
