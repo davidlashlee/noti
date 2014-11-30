@@ -16,7 +16,7 @@
 			<% if note_instance.body != nil %>
 				<div class="col-md-10">
 				<% if note_instance.body.length < 140 %>
-					&bull; <a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border-color: black;"><%= note_instance.body %></a>
+					&bull; <a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border: none;"><%= note_instance.body %></a>
 					<% else %>
 					<a href="#" id="body" data-type="textarea" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border-color: black;"><%= note_instance.body %></a>
 					<% end %>
