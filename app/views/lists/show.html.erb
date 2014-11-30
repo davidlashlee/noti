@@ -16,15 +16,14 @@
 			<% if note_instance.body != nil %>
 				<div class="col-md-10">
 				<% if note_instance.body.length < 140 %>
-					&bull; <a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border: none;"><%= note_instance.body %></a>
+					<h4> &bull; <a href="#" id="body" data-type="text" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border: none;"><%= note_instance.body %> </a></h4>
 					<% else %>
-					<a href="#" id="body" data-type="textarea" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border-color: black;"><%= note_instance.body %></a>
+					<h4> &bull; <a href="#" id="body" data-type="textarea" class="js-select" data-resource="note" data-pk="<%= note_instance.id %>" data-url="/lists/<%= @list.id %>/notes/<%= note_instance.id %>" data-title="Edit Note" style="border-color: black;"><%= note_instance.body %></a></h4>
 					<% end %>
 				</div>
 				<div class="col-md-2" align="center" style="vertical-align: middle;">
 					<buttom type="bottom" class="btn btn-default"><%= link_to '',  list_note_path(@list.id, note_instance.id),  method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-minus-circle redtext" %></buttom>
 				</div>
-			</br>
 			<% end %>
 			<% end %>
 		</div>
