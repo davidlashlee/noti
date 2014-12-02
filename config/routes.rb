@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'welcomes#index'
+  get '/about', :to => 'welcomes#about'
   resources :lists do
     resources :notes
   end
