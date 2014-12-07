@@ -13,7 +13,7 @@
 	<%= render "elements/navbar" %>
 
 
-	<% unless params[:controller].to_s == "welcomes"%>
+	<% if params[:controller].to_s == "lists"%>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<% if params[:controller].to_s == "lists"%>

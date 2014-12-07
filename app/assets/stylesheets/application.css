@@ -15,4 +15,5 @@
  *= require sidebar
  *= require homepage
  *= require bootstrap-editable.css
+ *= require session
  */
