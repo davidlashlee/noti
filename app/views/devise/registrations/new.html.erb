@@ -2,23 +2,23 @@
 <div class="container" >
 	<div class="row">
 		<div class="col-md-2"></div>
-		<div class="col-md-8 round_corners" style="background-color: rgba(30,30,30,.05); border-style: solid; border-width: 1px; margin-top: 120px; margin-left: 20px; margin-right: 20px; border-color: gray" align="center">
+		<div class="col-md-8 round_corners session_custom" align="center">
 			<h3 class="session_shadow">Welcome to Noti!</br>Sign Up</h3>
 
 			<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			<%= devise_error_messages! %>
 
-			<div style="max-width: 300px;">
-				<%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+			<div style="max-width: 300px;" class="session_shadow">
+				<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form_inline" %>
 			</div>
 
-			<div style="max-width: 300px;"><% f.label :password %> <br />
-				<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %><% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
+			<div style="max-width: 300px;" class="session_shadow" ><% f.label :password %> <br />
+				<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form_inline" %><% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
 			</div>
 			</br>
 
-			<div style="max-width: 300px;">
-				<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %>
+			<div style="max-width: 300px;" class="session_shadow">
+				<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form_inline" %>
 			</div>
 
 			<div><%= f.submit "Sign up" %></div>
@@ -26,7 +26,6 @@
 			<% end %>
 
 			<%= render "devise/shared/links" %>
-			</br>
 		</div>
 	</div>
 </div>

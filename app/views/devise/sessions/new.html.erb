@@ -1,23 +1,22 @@
 <body class="session_background">
 <div class="container">
 	<div class="row">
-	</br></br></br></br></br></br>
 		<div class="col-md-2"></div>
-		<div class="col-md-8 round_corners" style="background-color: rgba(30,30,30,.05); border-style: solid; border-width: 1px; margin-left: 20px; margin-right: 20px;" align="center">
-			<h2 class="session_shadow">Log in</h2>
+		<div class="col-md-8 round_corners session_custom" align="center">
+			<h2 class="session_shadow">Noti Log In</h2>
 
 			<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), class: "session_shadow") do |f| %>
-			<div style="max-width: 300px;">
-				<%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+			<div style="max-width: 300px;" class="session_shadow">
+				<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form_inline" %>
 			</div>
 
-			<div style="max-width: 300px;">
-				<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+			<div style="max-width: 300px;" class="session_shadow">
+				<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form_inline" %>
 			</div>
 
 				<% if devise_mapping.rememberable? -%>
-					<div>
-						<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+					<div class="session_shadow">
+						<%= f.check_box :remember_me %> <%= f.label :remember_me, class: "session_shadow" %>
 					</div>
 				<% end %>
 					</br>
@@ -30,10 +29,6 @@
 			<div>
 			<%= render "devise/shared/links" %>
 			</div>
-			
-			</br>
-			</br>
-			</br>
 		</div>
 </div>
 </div>
